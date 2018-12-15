@@ -20,10 +20,14 @@ public class MaxChatLength extends JavaPlugin {
         Config config = new Config("config.yml", this);
         if(config.get("max-chat-length") == null) {
             List<String> ignoredWorlds = Arrays.asList(new String[]{"IgnoredWorld"});
+            List<String> ignoredUUIDs = Arrays.asList(new String[]{"f84c6a79-0a4e-45e0-879b-cd49ebd4c4e2"});
+            List<String> ignoredNames = Arrays.asList(new String[]{"Steve"});
 
             config.set("max-chat-length", 100);
             config.set("bypass-permission", "mcl.bypass");
             config.set("ignored-worlds", ignoredWorlds);
+            config.set("ignored-names", ignoredNames);
+            config.set("ignored-uuids", ignoredUUIDs);
             config.set("message-too-long", "&cSorry, you are not allowed to send long messages!");
             config.save();
         }

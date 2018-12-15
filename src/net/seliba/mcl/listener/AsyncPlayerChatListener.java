@@ -27,6 +27,12 @@ public class AsyncPlayerChatListener implements Listener {
         if(config.getStringList("ignored-worlds").contains(player.getWorld().getName())) {
             return;
         }
+        if(config.getStringList("ignored-names").contains(player.getName())) {
+            return;
+        }
+        if(config.getStringList("ignored-uuids").contains(player.getUniqueId().toString())) {
+            return;
+        }
         if(event.getMessage().toCharArray().length > config.getInt("max-chat-length")) {
             event.setCancelled(true);
             player.sendMessage(config.getTranslatedString("message-too-long"));
